@@ -13,27 +13,43 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class MachineryManager {
 	private List<Machine> machines;
-	
-	public List<Machine> searchByMileage(double mileage){
-		return machines.stream().filter(machine -> machine.getMileage() == mileage).collect(Collectors.toList());
+
+	public List<Machine> searchByMileage(
+			final double mileage) {
+		return machines.stream().filter(
+				machine -> machine.getMileage() == mileage)
+				.collect(Collectors.toList());
 	}
-	
-	 public List<Machine> searchByFuelType(FuelType fuelType){
-		return machines.stream().filter(machine -> machine.getFuelType() == fuelType).collect(Collectors.toList());
-	 }
-	 
-	 private List<Machine> getMachines(SortOrder sortOrder, Comparator<Machine> comparing){
-		 if (sortOrder.equals(SortOrder.ASC)) {
-			 return machines.stream().sorted(comparing).collect(Collectors.toList());
-			 }
-		 return machines.stream().sorted(comparing.reversed()).collect(Collectors.toList());
-	 }
-	 
-	 public List<Machine> sortByMileage(SortOrder sortOrder){
-		 return getMachines	(sortOrder, Comparator.comparing(Machine::getMileage));
-	 }
-	 
-	 public List<Machine> sortByFuelConsumptionPerHour(SortOrder sortOrder){
-		 return getMachines(sortOrder, Comparator.comparing(Machine::getFuelConsumptionPerHour));
-	 }
+
+	public List<Machine> searchByFuelType(
+			final FuelType fuelType) {
+		return machines.stream()
+				.filter(machine -> machine
+						.getFuelType() == fuelType)
+				.collect(Collectors.toList());
+	}
+
+	private List<Machine> getMachines(
+			final SortOrder sortOrder,
+			final Comparator<Machine> comparing) {
+		if (sortOrder.equals(SortOrder.ASC)) {
+			return machines.stream().sorted(comparing)
+					.collect(Collectors.toList());
+		}
+		return machines.stream()
+				.sorted(comparing.reversed())
+				.collect(Collectors.toList());
+	}
+
+	public List<Machine> sortByMileage(
+			final SortOrder sortOrder) {
+		return getMachines(sortOrder,
+				Comparator.comparing(Machine::getMileage));
+	}
+
+	public List<Machine> sortByFuelConsumptionPerHour(
+			final SortOrder sortOrder) {
+		return getMachines(sortOrder, Comparator
+				.comparing(Machine::getFuelConsumption));
+	}
 }

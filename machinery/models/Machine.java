@@ -13,6 +13,6 @@ public class Machine {
 	private String model;
 	private String wheelFormula;
 	private double mileage;
-	private double fuelConsumptionPerHour;
+	private double fuelConsumption;
 	private FuelType fuelType;
 }

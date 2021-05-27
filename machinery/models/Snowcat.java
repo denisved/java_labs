@@ -13,11 +13,17 @@ import ua.lviv.iot.machinery.enums.Material;
 @ToString(callSuper = true)
 public class Snowcat extends Machine {
 	private double bucketScopeInMeters;
-	public Material material;
-	
-	public Snowcat(final String model, final String wheelFormula, final double mileage, final double fuelConsumptionPerHour,
-			final FuelType fuelType, double bucketScopeInMeters, Material material) {
-		super(model, wheelFormula, mileage, fuelConsumptionPerHour, fuelType);
+	private Material material;
+
+	@SuppressWarnings("checkstyle:magicnumber")
+	public Snowcat(final String model,
+			final String wheelFormula, final double mileage,
+			final double fuelConsumption,
+			final FuelType fuelType,
+			final double bucketScopeInMeters,
+			final Material material) {
+		super(model, wheelFormula, mileage, fuelConsumption,
+				fuelType);
 		this.bucketScopeInMeters = bucketScopeInMeters;
 		this.material = material;
 	}
