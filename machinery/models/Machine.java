@@ -10,6 +10,7 @@ import ua.lviv.iot.machinery.enums.FuelType;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Machine {
+	private Integer id;
 	private String model;
 	private String wheelFormula;
 	private double mileage;
